@@ -1,0 +1,7 @@
+{
+  "name": "Beautiful Lip Designer | 唇部美学设计",
+  "description": "An AI-powered web application for cosmetic doctors and patients to design and preview aesthetic lip injection results. Users can upload photos, apply AI-suggested styles, or use natural language to simulate changes.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

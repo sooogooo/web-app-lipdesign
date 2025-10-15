@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark font-md">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 唇部美学设计师</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --theme-indigo: #4f46e5;
+        --theme-indigo-hover: #4338ca;
+        --theme-text-base: #1f2937;
+        --theme-text-muted: #6b7280;
+        --theme-bg-base: #f9fafb;
+        --theme-bg-panel: #ffffff;
+        --theme-bg-subtle: #f3f4f6;
+        --theme-ring: #6366f1;
+      }
+      html.dark {
+        --theme-indigo: #818cf8;
+        --theme-indigo-hover: #6366f1;
+        --theme-text-base: #f9fafb;
+        --theme-text-muted: #9ca3af;
+        --theme-bg-base: #111827;
+        --theme-bg-panel: #1f2937;
+        --theme-bg-subtle: #374151;
+        --theme-ring: #818cf8;
+      }
+      html.theme-pro-blue.dark {
+        --theme-indigo: #60a5fa;
+        --theme-indigo-hover: #3b82f6;
+        --theme-ring: #60a5fa;
+      }
+      html.theme-pink-touch.dark {
+        --theme-indigo: #f472b6;
+        --theme-indigo-hover: #ec4899;
+        --theme-ring: #f472b6;
+      }
+       html.font-sm { font-size: 14px; }
+      html.font-md { font-size: 16px; }
+      html.font-lg { font-size: 18px; }
+
+      /* Custom scrollbar for a more refined look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--theme-bg-subtle);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      .compare-slider {
+        --position: 50%;
+        position: relative;
+        overflow: hidden;
+      }
+      .compare-slider .image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .compare-slider .image-container.original-image {
+        clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+      }
+      .compare-slider .slider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--position);
+        transform: translateX(-50%);
+        width: 4px;
+        background-color: rgba(255, 255, 255, 0.7);
+        cursor: ew-resize;
+        z-index: 10;
+      }
+       .compare-slider .slider-handle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+      .compare-slider .slider-handle::before,
+      .compare-slider .slider-handle::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      }
+      .compare-slider .slider-handle::before {
+        border-right: 8px solid #333;
+      }
+      .compare-slider .slider-handle::after {
+        border-left: 8px solid #333;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[var(--theme-bg-base)] text-[var(--theme-text-base)]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
